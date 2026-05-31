@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somalia Measles Vaccination Coverage Report 2019–2023</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
+  :root {
+    --red:#E63946; --blue:#457B9D; --teal:#2A9D8F;
+    --orange:#F4A261; --dark:#1D3557; --light:#F8F9FA; --border:#DEE2E6;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#fff; color:#212529; line-height:1.7; font-size:14px; }
+  .cover { background:linear-gradient(135deg,#1D3557 0%,#0F2239 60%,#163050 100%); color:white; padding:70px 60px 60px; position:relative; overflow:hidden; }
+  .cover::before { content:''; position:absolute; top:-80px; right:-80px; width:380px; height:380px; border-radius:50%; background:rgba(255,255,255,0.04); }
+  .cover-badge { display:inline-block; background:#2A9D8F; color:white; padding:5px 16px; border-radius:20px; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:20px; }
+  .cover h1 { font-family:'Merriweather',serif; font-size:28px; font-weight:700; line-height:1.35; max-width:700px; margin-bottom:12px; }
+  .cover .subtitle { font-size:15px; color:rgba(255,255,255,0.72); max-width:600px; margin-bottom:32px; }
+  .cover-meta { display:flex; gap:36px; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.15); padding-top:22px; }
+  .cover-meta div { display:flex; flex-direction:column; }
+  .cover-meta .label { font-size:10px; text-transform:uppercase; letter-spacing:1px; color:rgba(255,255,255,0.5); margin-bottom:3px; }
+  .cover-meta .value { font-size:13px; font-weight:500; color:rgba(255,255,255,0.9); }
+  .kpi-row { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:2px solid var(--border); }
+  .kpi { padding:28px 24px; border-right:1px solid var(--border); position:relative; }
+  .kpi:last-child { border-right:none; }
+  .kpi-value { font-size:32px; font-weight:700; color:var(--dark); line-height:1; margin-bottom:6px; }
+  .kpi-label { font-size:11px; text-transform:uppercase; letter-spacing:0.8px; color:#6C757D; font-weight:500; }
+  .kpi-bar { position:absolute; top:0; left:0; height:4px; width:100%; }
+  .container { max-width:900px; margin:0 auto; padding:0 40px; }
+  .section { padding:42px 0 32px; border-bottom:1px solid var(--border); }
+  h2 { font-family:'Merriweather',serif; font-size:18px; color:var(--dark); margin-bottom:6px; padding-bottom:8px; border-bottom:3px solid var(--teal); display:inline-block; }
+  h3 { font-size:14px; font-weight:600; color:var(--dark); margin:20px 0 8px; }
+  p { margin-bottom:12px; color:#343A40; }
+  .figure { margin:24px 0; border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .figure img { width:100%; display:block; }
+  .figure-caption { background:var(--light); padding:10px 16px; font-size:12px; color:#495057; border-top:1px solid var(--border); }
+  .figure-caption strong { color:var(--dark); }
+  table { width:100%; border-collapse:collapse; margin:18px 0; font-size:13px; }
+  thead tr { background:var(--dark); color:white; }
+  thead th { padding:11px 14px; text-align:left; font-weight:500; font-size:12px; }
+  tbody tr:nth-child(even) { background:var(--light); }
+  tbody td { padding:10px 14px; border-bottom:1px solid var(--border); }
+  .badge { display:inline-block; padding:2px 10px; border-radius:12px; font-size:11px; font-weight:600; }
+  .critical { background:#FECDD3; color:#9B1C1C; }
+  .low { background:#FEF3C7; color:#92400E; }
+  .moderate { background:#FEF9C3; color:#713F12; }
+  .callout { border-left:4px solid var(--blue); background:#EFF8FF; padding:14px 18px; border-radius:0 6px 6px 0; margin:16px 0; font-size:13px; }
+  .callout.warning { border-color:var(--orange); background:#FFF8F0; }
+  .callout.success { border-color:var(--teal); background:#F0FDFA; }
+  .callout.danger { border-color:var(--red); background:#FFF5F5; }
+  .callout strong { display:block; margin-bottom:4px; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--dark); }
+  .findings-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0; }
+  .finding-card { border:1px solid var(--border); border-radius:8px; padding:16px; background:var(--light); }
+  .finding-num { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--teal); margin-bottom:6px; }
+  .finding-card p { font-size:13px; margin:0; }
+  .footer { background:var(--dark); color:rgba(255,255,255,0.6); padding:22px 40px; font-size:11px; display:flex; justify-content:space-between; align-items:center; margin-top:20px; }
+  .footer strong { color:white; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="cover-badge">Immunization Coverage Analysis</div>
+  <h1>Measles Vaccination Coverage Gaps in Somalia — Regional Analysis 2019–2023</h1>
+  <p class="subtitle">A district-level investigation of MCV1 and MCV2 coverage, zero-dose children, and structural determinants of immunization failure across seven Somali regions</p>
+  <div class="cover-meta">
+    <div><span class="label">Author</span><span class="value">Ikraam Hassan Abdullahi, MSc Epidemiology</span></div>
+    <div><span class="label">Period</span><span class="value">January 2019 – December 2023</span></div>
+    <div><span class="label">Regions</span><span class="value">7 Somali Regions</span></div>
+    <div><span class="label">WHO Target</span><span class="value">MCV1 ≥95%</span></div>
+    <div><span class="label">Tools</span><span class="value">Python — pandas, matplotlib, scipy</span></div>
+  </div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-bar" style="background:#E63946"></div><div class="kpi-value">125,025</div><div class="kpi-label">Unvaccinated Children (2023)</div></div>
+  <div class="kpi"><div class="kpi-bar" style="background:#F4A261"></div><div class="kpi-value">0 / 7</div><div class="kpi-label">Regions Reaching WHO 95% Target</div></div>
+  <div class="kpi"><div class="kpi-bar" style="background:#2A9D8F"></div><div class="kpi-value">r = −0.94</div><div class="kpi-label">IDP % Correlation with Low Coverage</div></div>
+  <div class="kpi"><div class="kpi-bar" style="background:#8338EC"></div><div class="kpi-value">46–83%</div><div class="kpi-label">MCV1 Range Across Regions (2023)</div></div>
+</div>
+
+<div class="container">
+
+<div class="section">
+  <h2>1. Background & Objectives</h2>
+  <p>Measles remains one of the most contagious infectious diseases known, with a basic reproduction number (R₀) of 12–18. Achieving and sustaining population immunity requires MCV1 coverage of at least 95% — a threshold no Somali region has reached as of 2023. Somalia's protracted humanitarian crisis, characterized by chronic conflict, widespread internal displacement, and fragile health infrastructure, has created persistent immunization gaps that place millions of children at risk of preventable measles outbreaks.</p>
+  <div class="callout danger">
+    <strong>Critical Context</strong>
+    With 125,025 unvaccinated children identified across Somalia in 2023 alone, and four regions classified as critical (&lt;60% MCV1), the conditions for large-scale measles outbreaks are present. This analysis quantifies those gaps and identifies their structural drivers to inform targeted intervention.
+  </div>
+</div>
+
+<div class="section">
+  <h2>2. Methods</h2>
+  <h3>Study Design</h3>
+  <p>A retrospective cross-sectional analysis was conducted using district-level immunization surveillance data from seven Somali regions (Banadir, Southwest, Hirshabelle, Jubaland, Puntland, Galmudug, and Somaliland) over five years (2019–2023). Data structure reflects WHO/UNICEF Joint Reporting Form (JRF) immunization indicators.</p>
+  <h3>Outcomes & Variables</h3>
+  <p>Primary outcomes were MCV1 and MCV2 coverage (%). Secondary outcomes included number of zero-dose (unvaccinated) children and immunization gap (100 − MCV1%). Structural determinants examined included distance to nearest health facility (km), IDP population percentage, conflict intensity score (0–7), and health worker density.</p>
+  <h3>Statistical Analysis</h3>
+  <p>Pearson correlation coefficients assessed associations between structural determinants and MCV1 coverage. Descriptive statistics characterized regional and temporal distribution. Geographic visualization used coordinate-based bubble mapping to represent spatial distribution of coverage and unvaccinated burden. All analyses were conducted in Python 3.12.</p>
+</div>
+
+<div class="section">
+  <h2>3. Results</h2>
+  <h3>3.1 Regional Coverage vs WHO Target</h3>
+  <p>No Somali region achieved the WHO MCV1 target of 95% during the study period. In 2023, coverage ranged from 46% in Southwest State to 83% in Somaliland — a 37 percentage point gap between the lowest and highest performing regions. Four regions (Southwest, Galmudug, Jubaland, and Hirshabelle) remain in critical status with MCV1 below 60%. The MCV2 dropout rate — the gap between first and second dose — was substantial across all regions, indicating systemic failures in follow-up vaccination.</p>
+  <div class="figure">
+    <img src="outputs/fig1_regional_coverage.png" alt="Regional Coverage">
+    <div class="figure-caption"><strong>Figure 1.</strong> Left: MCV1 coverage by region against WHO 95% target (red) and 80% alert threshold (orange). Right: MCV1 vs MCV2 coverage comparison showing second-dose dropout across regions.</div>
+  </div>
+
+  <table>
+    <thead><tr><th>Region</th><th>MCV1 2023 (%)</th><th>MCV2 2023 (%)</th><th>Unvaccinated</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Southwest</td><td>46%</td><td>24%</td><td>29,195</td><td><span class="badge critical">Critical</span></td></tr>
+      <tr><td>Galmudug</td><td>48%</td><td>26%</td><td>16,480</td><td><span class="badge critical">Critical</span></td></tr>
+      <tr><td>Jubaland</td><td>50%</td><td>28%</td><td>21,770</td><td><span class="badge critical">Critical</span></td></tr>
+      <tr><td>Hirshabelle</td><td>50%</td><td>28%</td><td>22,110</td><td><span class="badge critical">Critical</span></td></tr>
+      <tr><td>Puntland</td><td>68%</td><td>41%</td><td>13,400</td><td><span class="badge low">Low</span></td></tr>
+      <tr><td>Banadir</td><td>76%</td><td>50%</td><td>11,760</td><td><span class="badge low">Low</span></td></tr>
+      <tr><td>Somaliland</td><td>83%</td><td>60%</td><td>10,310</td><td><span class="badge moderate">Moderate</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>3.2 Trends Over Time</h3>
+  <p>All regions demonstrated modest upward trends in MCV1 coverage between 2019 and 2023, suggesting incremental programmatic improvement. However, the rate of increase (approximately 1–2 percentage points per year) is insufficient to reach the WHO 95% target within a decade at current pace. The MCV2 coverage gap persisted throughout the study period, indicating structural barriers to second-dose delivery beyond the reach of first-dose campaigns.</p>
+  <div class="figure">
+    <img src="outputs/fig2_coverage_trends.png" alt="Coverage Trends">
+    <div class="figure-caption"><strong>Figure 2.</strong> Five-year MCV1 (left) and MCV2 (right) coverage trends by region. Red dashed line = WHO 95% target. Shaded zones indicate critical (red) and sub-target (orange) coverage bands.</div>
+  </div>
+
+  <h3>3.3 Unvaccinated Children</h3>
+  <p>The heatmap reveals that Southwest State consistently accumulates the largest absolute burden of unvaccinated children, driven by a combination of large target population and critically low coverage. The total unvaccinated burden across Somalia increased from approximately 118,000 in 2019 to 125,025 in 2023 — reflecting population growth outpacing vaccination program expansion.</p>
+  <div class="figure">
+    <img src="outputs/fig3_unvaccinated_heatmap.png" alt="Unvaccinated Heatmap">
+    <div class="figure-caption"><strong>Figure 3.</strong> Heatmap of unvaccinated (zero-dose) children by region and year. Southwest consistently records the highest burden, representing the primary geographic priority for targeted outreach.</div>
+  </div>
+
+  <h3>3.4 Structural Determinants</h3>
+  <p>Three structural factors showed strong negative correlations with MCV1 coverage. IDP population percentage showed the strongest inverse association (r = −0.939, p&lt;0.001), followed by conflict intensity score (r = −0.928) and distance to clinic (r = −0.876). These findings confirm that humanitarian displacement, insecurity, and geographic access barriers are the primary drivers of immunization failure in Somalia — not vaccine hesitancy or supply shortfalls alone.</p>
+  <div class="figure">
+    <img src="outputs/fig4_determinants.png" alt="Determinants">
+    <div class="figure-caption"><strong>Figure 4.</strong> Scatter plots of MCV1 coverage against distance to clinic (left), IDP population percentage (centre), and conflict intensity score (right). All three show strong negative correlations, confirming structural drivers of coverage failure.</div>
+  </div>
+
+  <h3>3.5 Geographic Distribution</h3>
+  <p>The geographic bubble map reveals a clear spatial pattern: northern regions (Somaliland, Puntland) achieve higher coverage, while southern and central regions (Southwest, Hirshabelle, Jubaland, Galmudug) remain in critical status. Bubble size represents unvaccinated child burden — Southwest and Hirshabelle emerge as the highest-priority geographic targets for intensified immunization intervention.</p>
+  <div class="figure">
+    <img src="outputs/fig5_geographic_map.png" alt="Geographic Map">
+    <div class="figure-caption"><strong>Figure 5.</strong> Geographic distribution of MCV1 coverage across Somalia in 2023. Bubble size = number of unvaccinated children. Color = coverage classification. A clear north–south gradient is visible.</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>4. Key Findings</h2>
+  <div class="findings-grid">
+    <div class="finding-card"><div class="finding-num">Finding 01</div><p><strong>Zero regions</strong> in Somalia achieved the WHO MCV1 target of 95% — creating a persistent measles outbreak risk across the entire country.</p></div>
+    <div class="finding-card"><div class="finding-num">Finding 02</div><p><strong>IDP displacement</strong> is the strongest predictor of low coverage (r=−0.939), requiring humanitarian-integrated immunization delivery models.</p></div>
+    <div class="finding-card"><div class="finding-num">Finding 03</div><p><strong>125,025 children</strong> remained unvaccinated in 2023 — with Southwest State and Hirshabelle accounting for over 40% of national burden.</p></div>
+    <div class="finding-card"><div class="finding-num">Finding 04</div><p><strong>The north–south gradient</strong> in coverage reflects the security and infrastructure disparity — Somaliland's relative stability translates directly to better immunization outcomes.</p></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>5. Recommendations</h2>
+  <div class="callout danger"><strong>Priority 1 — Southwest & Hirshabelle Emergency Response</strong>With MCV1 below 50% and over 51,000 unvaccinated children combined, these two regions require immediate supplementary immunization activities (SIAs) targeting zero-dose children in IDP settlements.</div>
+  <div class="callout warning"><strong>Priority 2 — IDP-Integrated Outreach</strong>Given the r=−0.939 correlation between IDP density and low coverage, fixed-facility vaccination is insufficient. Mobile vaccination teams embedded within IDP camp management structures are required for these populations.</div>
+  <div class="callout"><strong>Priority 3 — MCV2 Dropout Reduction</strong>The consistent MCV1–MCV2 gap across all regions indicates second-dose delivery fails systematically. Defaulter tracing, reminder systems, and community health worker follow-up should be strengthened in all regions.</div>
+  <div class="callout success"><strong>Priority 4 — Somaliland as Model</strong>Somaliland's relatively higher coverage (83% MCV1) in a Somali context demonstrates that improved security and community health infrastructure yield measurable immunization gains. This model should inform investment in other regions as conditions permit.</div>
+</div>
+
+<div class="section">
+  <h2>6. Conclusion</h2>
+  <p>This analysis demonstrates that measles vaccination coverage in Somalia remains critically below WHO thresholds across all seven regions, with 125,025 children unvaccinated in 2023 alone. The strong associations between coverage failure and IDP displacement, conflict, and geographic access barriers confirm that immunization gaps in Somalia are fundamentally humanitarian problems requiring humanitarian solutions. Targeted investment in mobile outreach, IDP-integrated service delivery, and second-dose follow-up in Southwest State and Hirshabelle represents the highest-yield opportunity to reduce measles outbreak risk in the near term.</p>
+</div>
+
+</div>
+<div class="footer">
+  <div><strong>Ikraam Hassan Abdullahi</strong> | MSc Epidemiology | Somalia 🇸🇴</div>
+  <div>linkedin.com/in/ikraam-yar &nbsp;|&nbsp; github.com/ikraamhazzan1-cyber</div>
+</div>
+</body>
+</html>
