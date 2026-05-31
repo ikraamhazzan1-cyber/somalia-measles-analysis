@@ -1,0 +1,88 @@
+# 💉 Somalia Measles Vaccination Coverage Analysis — 2019–2023
+
+[
+
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+
+](https://python.org)
+[
+
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
+](LICENSE)
+[
+
+![Status: Complete](https://img.shields.io/badge/Status-Complete-brightgreen)
+
+]()
+[
+
+![Field: Immunization](https://img.shields.io/badge/Field-Immunization-009688)
+
+]()
+[
+
+![WHO Target: 95%](https://img.shields.io/badge/WHO%20Target-95%25-red)
+
+]()
+
+> **Regional analysis of measles vaccination coverage gaps, zero-dose children, and structural determinants of immunization failure across seven Somali regions — 2019 to 2023.**
+
+---
+
+## 📋 Overview
+
+This project investigates why measles vaccination coverage in Somalia remains critically below the WHO 95% herd immunity threshold — and which structural factors drive coverage failure. The analysis uses district-level immunization data to:
+
+- **Quantify MCV1 & MCV2 coverage** vs WHO target by region
+- **Map zero-dose children** — unvaccinated burden by region and year
+- **Identify structural drivers** — distance, IDP displacement, conflict
+- **Visualize geographically** — GIS-style bubble map of Somalia
+- **Track 5-year trends** — 2019 to 2023
+
+---
+
+## 🔑 Key Findings
+
+| Metric | Value |
+|--------|-------|
+| Unvaccinated Children (2023) | **125,025** |
+| Regions reaching WHO 95% target | **0 out of 7** |
+| Lowest MCV1 coverage | **Southwest State — 46%** |
+| Highest MCV1 coverage | **Somaliland — 83%** |
+| IDP–coverage correlation | **r = −0.939** (p<0.001) |
+| Conflict–coverage correlation | **r = −0.928** (p<0.001) |
+
+---
+
+## 📊 Figures
+
+| Figure | Description |
+|--------|-------------|
+| `fig1_regional_coverage.png` | MCV1/MCV2 vs WHO target |
+| `fig2_coverage_trends.png` | 5-year trend lines |
+| `fig3_unvaccinated_heatmap.png` | Zero-dose children heatmap |
+| `fig4_determinants.png` | Structural drivers correlation |
+| `fig5_geographic_map.png` | GIS bubble map of Somalia |
+
+---
+
+## 🛠️ Methods
+
+- **Design:** Retrospective cross-sectional analysis
+- **Outcomes:** MCV1/MCV2 coverage, zero-dose children
+- **Statistics:** Pearson correlation, descriptive analysis
+- **Tools:** Python 3.12 — pandas, matplotlib, seaborn, scipy
+
+---
+
+## 👤 Author
+
+**Ikraam Hassan Abdullahi**
+MSc Epidemiology | BSc Public Health | Somalia 🇸🇴
+
+🔗 LinkedIn: https://www.linkedin.com/in/ikraam-yar
+💻 GitHub: https://github.com/ikraamhazzan1-cyber
+
+---
+MIT License — free to use with attribution.
